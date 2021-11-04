@@ -17,6 +17,7 @@ namespace JioWebAppDemo.Controllers
         {
             _context = context;
         }
+
         public async Task<IActionResult> Index()
         {
             var person = await _context.Person.ToListAsync();
