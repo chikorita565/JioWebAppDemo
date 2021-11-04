@@ -9,7 +9,15 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Travel.Booking</a>
+                <div class="navbar-nav">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Person" asp-action="Create">Book Now</a>
+                </div>
+            </div>
+        </nav>
+        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ang aking Demo</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -27,7 +35,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav>*@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
