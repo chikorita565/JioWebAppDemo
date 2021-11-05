@@ -6,6 +6,8 @@
     <title>@ViewData["Title"] - JioWebAppDemo</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/Style.css">
 </head>
 <body>
     <header>
@@ -17,6 +19,20 @@
                 </div>
             </div>
         </nav>
+        <div class="banner">
+            <div class="container">
+                <h1 class="banner-title">
+                    <span>Travel.</span> Booking
+                </h1>
+                <p>Any place where you wnat to go.</p>
+                <form>
+                    <input type="text" class="search-input" placeholder="find your destination . . .">
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
         @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ang aking Demo</a>
