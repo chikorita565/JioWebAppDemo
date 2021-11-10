@@ -30,22 +30,26 @@ steps:
     
 - task: PublishBuildArtifacts@1
 
+
 - task: VSTest@2
   inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    runTestsInIsolation: true
+    codeCoverageEnabled: true
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-    projects: '''$(System.DefaultWorkingDirectory)/**/*.csproj'''
+    projects: '$(System.DefaultWorkingDirectory)/**/*.csproj'
     arguments: '--no-build --configuration $(buildConfiguration) --collect "Code Coverage"'
     publishWebProjects: true
-    workingDirectory: '$(System.DefaultWorkingDirectory).'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'publish'
-    publishWebProjects: true
+    workingDirectory: '''$(System.DefaultWorkingDirectory)/**/*.zip'
 
 - task: PublishTestResults@2
   inputs:
