@@ -53,3 +53,5 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     mergeTestResults: true
     failTaskOnFailedTests: true
+    buildPlatform: '$(buildPlatform)'
+    buildConfiguration: '$(buildConfiguration)'
