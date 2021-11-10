@@ -41,6 +41,12 @@ steps:
     arguments: '--no-build --configuration $(buildConfiguration) --collect "Code Coverage"'
     publishWebProjects: true
     workingDirectory: '$(System.DefaultWorkingDirectory).'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'XUnit'
