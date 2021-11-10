@@ -43,13 +43,6 @@ steps:
     codeCoverageEnabled: true
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'test'
-    projects: '$(System.DefaultWorkingDirectory)/**/*.csproj'
-    arguments: '--no-build --configuration $(buildConfiguration) --collect "Code Coverage"'
-    publishWebProjects: true
-    workingDirectory: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 - task: PublishTestResults@2
   inputs:
