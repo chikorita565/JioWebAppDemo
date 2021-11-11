@@ -55,7 +55,6 @@ steps:
     command: 'build'
     projects: '$(System.DefaultWorkingDirectory)/**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
-    publishWebProjects: true
 
 - task: DotNetCoreCLI@2
   inputs:
