@@ -42,6 +42,9 @@ steps:
     codeCoverageEnabled: true
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+- task: UseDotNet@2
+  inputs:
+    version: '5.x'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
