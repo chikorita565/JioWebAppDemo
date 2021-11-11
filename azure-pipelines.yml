@@ -30,7 +30,6 @@ steps:
     
 - task: PublishBuildArtifacts@1
 
-
 - task: VSTest@2
   inputs:
     testSelector: 'testAssemblies'
@@ -43,11 +42,30 @@ steps:
     codeCoverageEnabled: true
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+- task: UseDotNet@2
+  inputs:
+    version: '5.x'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    feedsToUse: 'select'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '$(System.DefaultWorkingDirectory)/**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+    publishWebProjects: true
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
 
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'XUnit'
-    testResultsFiles: '**/TEST-*.xml'
+    testResultsFiles: '**/TESTRESULTS-*.trx'
     mergeTestResults: true
     failTaskOnFailedTests: true
     buildPlatform: '$(buildPlatform)'
