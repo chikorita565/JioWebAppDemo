@@ -19,7 +19,6 @@ namespace WebAppDemoIntegrationTest
 
         [Theory]
         [InlineData("/")]
-        [InlineData("/Person")]
         [InlineData("/Person/Create")]
         public async Task GetHttpRequest(string url)
         {
