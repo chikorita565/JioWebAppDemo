@@ -37,7 +37,7 @@ steps:
       **\*test*.dll
       !**\*TestAdapter.dll
       !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+    searchFolder: '$(System.DefaultWorkingDirectory)/**/*.csproj'
     runTestsInIsolation: true
     codeCoverageEnabled: true
     platform: '$(buildPlatform)'
@@ -59,13 +59,13 @@ steps:
 
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'publish'
+    command: 'test'
     publishWebProjects: true
 
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'XUnit'
-    testResultsFiles: '**/TESTRESULTS-*.trx'
+    testResultsFiles: '**/TEST-*.trx'
     mergeTestResults: true
     failTaskOnFailedTests: true
     buildPlatform: '$(buildPlatform)'
