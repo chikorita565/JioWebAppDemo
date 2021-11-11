@@ -58,7 +58,8 @@ steps:
 
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'test'
+    command: 'publish'
+    publishWebProjects: true
 
 - task: PublishTestResults@2
   inputs:
