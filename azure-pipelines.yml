@@ -43,6 +43,12 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+-task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '$(System.DefaultWorkingDirectory)/**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+    displayName: 'dotnet build $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   inputs:
