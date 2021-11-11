@@ -3,12 +3,13 @@ using Xunit;
 
 namespace WebAppDemoIntegrationTest
 {
-    public class UnitTest1
+    public class PersonController
     {
         [Fact]
-        public void Test1()
+        public void CreateContact()
         {
 
         }
     }
+
 }
