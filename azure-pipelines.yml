@@ -58,13 +58,19 @@ steps:
 
 - task: DotNetCoreCLI@2
   inputs:
+    command: 'test'
+    projects: '$(System.DefaultWorkingDirectory)/**/*.csproj'
+    workingDirectory: '$(System.DefaultWorkingDirectory)'
+
+- task: DotNetCoreCLI@2
+  inputs:
     command: 'publish'
     publishWebProjects: true
 
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'XUnit'
-    testResultsFiles: '**/TEST-*.trx'
+    testResultsFiles: '**/TESTRESULTS-*.trx'
     mergeTestResults: true
     failTaskOnFailedTests: true
     buildPlatform: '$(buildPlatform)'
