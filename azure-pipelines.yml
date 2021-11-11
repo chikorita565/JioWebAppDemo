@@ -30,7 +30,6 @@ steps:
     
 - task: PublishBuildArtifacts@1
 
-
 - task: VSTest@2
   inputs:
     testSelector: 'testAssemblies'
@@ -43,17 +42,16 @@ steps:
     codeCoverageEnabled: true
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-- task: PublishTestResults@2
+
+
+- task: DotNetCoreCLI@2
   inputs:
-    testResultsFormat: 'VSTest'
-    testResultsFiles: '**/TEST-*.xml'
-    mergeTestResults: true
-    failTaskOnFailedTests: true
+    command: 'test'
 
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'XUnit'
-    testResultsFiles: '**/TEST-*.xml'
+    testResultsFiles: '**/TEST-*.trx'
     mergeTestResults: true
     failTaskOnFailedTests: true
     buildPlatform: '$(buildPlatform)'
